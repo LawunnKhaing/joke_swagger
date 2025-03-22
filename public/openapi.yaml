@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: Joke API
+  version: 1.0.0
+  description: A simple REST API to manage and retrieve categorized jokes.
+
+servers:
+  - url: http://localhost:3000/api
+
+paths:
+  /jokes/random:
+    get:
+      summary: Get a random joke
+      responses:
+        '200':
+          description: A random joke
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+
+  /jokes:
+    post:
+      summary: Add a new joke
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewJoke'
+      responses:
+        '200':
+          description: Joke added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+
+  /categories:
+    get:
+      summary: Get all categories
+      responses:
+        '200':
+          description: A list of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+
+components:
+  schemas:
+    Joke:
+      type: object
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+    NewJoke:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: string
