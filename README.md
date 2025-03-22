@@ -47,5 +47,7 @@ It allows you to store, categorize, retrieve, and vote on jokes — with a beaut
    ```
 4. **Open Swagger UI**
 
+    ```bash
     http://localhost:3000/docs
+    ```
 
