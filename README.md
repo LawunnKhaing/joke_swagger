@@ -35,8 +35,17 @@ It allows you to store, categorize, retrieve, and vote on jokes — with a beaut
    git clone https://github.com/yourusername/joke_swagger.git
    cd joke_swagger
    ```
+2. **Install dependencies**
+
+   ```bash
    npm install
    ```
-   node app.js
+3. **Run the app**
 
+   ```bash
+   node app.js
    ```
+4. **Open Swagger UI**
+
+    http://localhost:3000/docs
+
